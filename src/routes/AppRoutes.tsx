@@ -1,13 +1,16 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+
 import HomePage from "../pages/HomePage/HomePage";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import LoginPage from "../pages/Login/LoginPage";
 import RegisterPage from "../pages/Register/RegisterPage";
 import ProfilePage from "../pages/Profile/ProfilePage";
 import EditProfilePage from "../pages/EditProfilePage/EditProfilePage";
-import ProtectedRoute from "./ProtectedRoute";
 import ProductsPage from "../pages/Products/ProductsPage";
+import ProductDetailPage from "../pages/ProductDetail/ProductDetailPage";
+
+import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -17,6 +20,9 @@ const AppRoutes: React.FC = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registro" element={<RegisterPage />} />
       <Route path="/productos" element={<ProductsPage />} />
+
+      {/* 🔥 NUEVA RUTA */}
+      <Route path="/producto/:id" element={<ProductDetailPage />} />
 
       <Route
         path="/perfil"

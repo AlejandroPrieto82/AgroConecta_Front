@@ -1,9 +1,12 @@
 import React, { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./ProductsPage.module.css";
 import { mockProducts } from "../../mocks/mockProducts";
-import type { Producto } from "../../types/product";
+import Button from "../../components/Button/Button";
 
 const ProductsPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const [search, setSearch] = useState("");
   const [categoria, setCategoria] = useState("todas");
   const [orden, setOrden] = useState("recientes");
@@ -21,19 +24,16 @@ const ProductsPage: React.FC = () => {
   const productosFiltrados = useMemo(() => {
     let data = [...mockProducts];
 
-    // 🔍 Buscar por nombre
     if (search.trim()) {
       data = data.filter((p) =>
         p.nombre.toLowerCase().includes(search.toLowerCase())
       );
     }
 
-    // 🏷️ Filtrar por categoría
     if (categoria !== "todas") {
       data = data.filter((p) => p.categoria === categoria);
     }
 
-    // 📊 Ordenamientos
     switch (orden) {
       case "precio_asc":
         data.sort((a, b) => a.precioPorKg - b.precioPorKg);
@@ -44,7 +44,6 @@ const ProductsPage: React.FC = () => {
       case "rating":
         data.sort((a, b) => (b.rating || 0) - (a.rating || 0));
         break;
-      case "recientes":
       default:
         data.sort(
           (a, b) =>
@@ -59,54 +58,73 @@ const ProductsPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Productos disponibles</h2>
+      <h2>Explorar productos</h2>
 
       {/* FILTROS */}
       <div className={styles.filters}>
-        <input
-          type="text"
-          placeholder="Buscar producto..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div className={styles.filterItem}>
+          <input
+            type="text"
+            placeholder="Buscar"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
 
-        <select
-          value={categoria}
-          onChange={(e) => setCategoria(e.target.value)}
-        >
-          {categorias.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
+        <div className={styles.filterItem}>
+          <select
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+          >
+            {categorias.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat === "todas" ? "Categoría" : cat}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select value={orden} onChange={(e) => setOrden(e.target.value)}>
-          <option value="recientes">Más recientes</option>
-          <option value="precio_asc">Precio: menor a mayor</option>
-          <option value="precio_desc">Precio: mayor a menor</option>
-          <option value="rating">Mejor calificados</option>
-        </select>
+        <div className={styles.filterItem}>
+          <select value={orden} onChange={(e) => setOrden(e.target.value)}>
+            <option value="recientes">Ordenar</option>
+            <option value="precio_asc">💰 Menor precio</option>
+            <option value="precio_desc">💰 Mayor precio</option>
+            <option value="rating">⭐ Mejor calificados</option>
+          </select>
+        </div>
       </div>
 
       {/* GRID */}
-      <div className={styles.grid}>
+      <ul className={styles.grid}>
         {productosFiltrados.map((p) => (
-          <div key={p.id} className={styles.card}>
-            <img src={p.imagenes[0]} className={styles.image} />
+          <li
+            key={p.id}
+            className={styles.card}
+            onClick={() => navigate(`/producto/${p.id}`)}
+            style={{ cursor: "pointer" }}
+          >
+            <img
+              src={p.imagenes[0]}
+              className={styles.image}
+              loading="lazy"
+              alt={p.nombre}
+            />
 
             <div className={styles.cardContent}>
               <h3>{p.nombre}</h3>
+
               <span className={styles.category}>{p.categoria}</span>
 
-              <p className={styles.price}>${p.precioPorKg} / kg</p>
-
-              <p className={styles.meta}>
-                Disponible: {p.kgDisponibles} kg
+              <p className={styles.price}>
+                ${p.precioPorKg} / kg
               </p>
 
               <p className={styles.meta}>
-                Ubicación: {p.ubicacion}
+                📦 {p.kgDisponibles} kg disponibles
+              </p>
+
+              <p className={styles.meta}>
+                📍 {p.ubicacion}
               </p>
 
               {p.rating && (
@@ -114,10 +132,24 @@ const ProductsPage: React.FC = () => {
                   ⭐ {p.rating} ({p.reviews})
                 </p>
               )}
+
+              {/* BOTONES */}
+              <div
+                className={styles.actions}
+                onClick={(e) => e.stopPropagation()} // 🔥 CLAVE
+              >
+                <Button to={`/producto/${p.id}`} variant="outline">
+                  Detalles
+                </Button>
+
+                <Button to="/carrito" variant="filled">
+                  Comprar
+                </Button>
+              </div>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
