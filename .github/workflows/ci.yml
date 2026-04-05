@@ -1,0 +1,41 @@
+name: CI - React Vite + Sonar
+
+on:
+push:
+branches:
+- develop
+- main
+pull_request:
+branches:
+- develop
+
+jobs:
+build-and-analyze:
+runs-on: ubuntu-latest
+
+```
+steps:
+  - uses: actions/checkout@v4
+    with:
+      fetch-depth: 0
+
+  - uses: actions/setup-node@v4
+    with:
+      node-version: 20
+      cache: 'npm'
+
+  - run: npm ci
+
+  - run: npm run lint --if-present
+
+  - run: npm run build
+
+  - uses: SonarSource/sonarcloud-github-action@v2
+    with:
+      args: >
+        -Dsonar.projectKey=AlejandroPrieto82_AgroConecta_Front
+        -Dsonar.organization=agroconecta
+        -Dsonar.sources=src
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+```
