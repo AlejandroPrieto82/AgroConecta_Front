@@ -1,4 +1,3 @@
-// src/components/HeroSection/HeroSection.tsx
 import React from "react";
 import Button from "../../Button/Button";
 import styles from "./HeroSection.module.css";

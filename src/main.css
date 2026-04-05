@@ -4,7 +4,7 @@
 :root {
   --color-negro: #1A1A18;
   --color-blanco: #F8F6F0;
-  --color-verde: #1DAB33; /* nuevo verde principal */
+  --color-verde: #1DAB33;
   --color-verde-intermedio: #6B9E6E;
   --color-verde-claro: #C8D9C0;
   --color-blanco-grisaceo: #E8E4DC;
@@ -22,7 +22,7 @@ body {
   background-color: var(--color-blanco);
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* importante para empujar footer abajo */
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6, .logo {
@@ -53,13 +53,14 @@ a.activeLink {
    ======================= */
 main {
   flex: 1;
-  min-height: calc(100vh - 120px); /* ajusta según altura del navbar + footer */
+  min-height: calc(100vh - 120px);
   padding: 1vh;
+  padding-top: 80px; /* espacio para navbar fijo */
 }
 
 /* =======================
    FOOTER STICKY
    ======================= */
 footer {
-  flex-shrink: 0; /* no se encoge */
+  flex-shrink: 0;
 }

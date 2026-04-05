@@ -1,20 +1,29 @@
+:root {
+  --color-negro: #1A1A18;
+  --color-blanco: #F8F6F0;
+  --color-verde: #1dab33;
+  --color-blanco-grisaceo: #E8E4DC;
+}
+
+/* Footer principal */
 .footer {
-  background-color: var(--color-negro); /* fondo negro */
+  background-color: var(--color-negro);
   padding: 2rem;
   font-family: "DM Sans", sans-serif;
-  color: var(--color-blanco); /* textos claros sobre fondo oscuro */
+  color: var(--color-blanco);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 220px;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* sombra arriba del footer */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Sección superior: columnas */
+/* Sección superior: logo, links, contacto */
 .top {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: space-between; /* logo izquierda, links centrados, contacto derecha */
+  align-items: center; /* CENTRADO VERTICAL */
+  flex-wrap: wrap; /* responsive */
   gap: 2rem;
   margin-bottom: 2rem;
 }
@@ -27,9 +36,10 @@
   font-family: "Cormorant Garamond", serif;
   font-weight: bold;
   font-size: 1.5rem;
-  flex: 1;
+  flex: 0 1 auto;
 }
 
+/* Placeholder verde para logo */
 .logoPlaceholder {
   width: 40px;
   height: 40px;
@@ -41,15 +51,18 @@
 .linksSection {
   display: flex;
   gap: 4rem;
-  flex: 2;
+  justify-content: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 600px;
 }
 
 .linksSection div h4 {
   font-family: "Cormorant Garamond", serif;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: var(--color-blanco); /* títulos en blanco */
-  border-bottom: 1px solid var(--color-blanco-grisaceo); /* subrayado */
+  color: var(--color-blanco);
+  border-bottom: 1px solid var(--color-blanco-grisaceo);
   padding-bottom: 0.2rem;
 }
 
@@ -66,10 +79,36 @@
 }
 
 .linksSection li:hover {
-  color: var(--color-verde); /* hover verde */
+  color: var(--color-verde);
 }
 
-/* Sección inferior: horizontal */
+/* Contacto derecha */
+.contactSection {
+  flex: 0 1 auto;
+  min-width: 200px;
+}
+
+.contactSection h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--color-blanco);
+  border-bottom: 1px solid var(--color-blanco-grisaceo);
+  padding-bottom: 0.2rem;
+}
+
+.contactSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactSection li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Sección inferior */
 .bottom {
   display: flex;
   justify-content: space-between;
@@ -122,4 +161,27 @@
 .rights {
   font-size: 0.9rem;
   color: var(--color-blanco-grisaceo);
+}
+
+/* Responsive básico */
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .linksSection {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+
+  .contactSection {
+    margin-top: 1rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }
