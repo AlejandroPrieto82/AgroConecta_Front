@@ -27,9 +27,6 @@ const Navbar: React.FC = () => {
             <NavLink to="/about" className={activeClass}>Sobre nosotros</NavLink>
           </li>
           <li>
-            <NavLink to="/services" className={activeClass}>Servicios</NavLink>
-          </li>
-          <li>
             <NavLink to="/marketplace" className={activeClass}>Marketplace</NavLink>
           </li>
         </ul>
@@ -52,9 +49,6 @@ const Navbar: React.FC = () => {
           </li>
           <li>
             <NavLink to="/about" className={activeClass} onClick={toggleMenu}>Sobre nosotros</NavLink>
-          </li>
-          <li>
-            <NavLink to="/services" className={activeClass} onClick={toggleMenu}>Servicios</NavLink>
           </li>
           <li>
             <NavLink to="/marketplace" className={activeClass} onClick={toggleMenu}>Marketplace</NavLink>
