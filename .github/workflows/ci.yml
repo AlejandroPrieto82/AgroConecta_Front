@@ -18,7 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Necesario para que Sonar analice el historial de Git correctamente
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -37,5 +37,13 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v3
+        with:
+          args: >
+            -Dsonar.projectKey=AlejandroPrieto82_AgroConecta_Front
+            -Dsonar.organization=agroconecta
+            -Dsonar.projectName=AgroConecta Front
+            -Dsonar.sources=src
+            -Dsonar.sourceEncoding=UTF-8
+            -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/*.config.ts,**/*.config.js,**/vite-env.d.ts
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

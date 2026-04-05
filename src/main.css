@@ -1,0 +1,65 @@
+/* =======================
+   VARIABLES DE COLOR
+   ======================= */
+:root {
+  --color-negro: #1A1A18;
+  --color-blanco: #F8F6F0;
+  --color-verde: #1DAB33; /* nuevo verde principal */
+  --color-verde-intermedio: #6B9E6E;
+  --color-verde-claro: #C8D9C0;
+  --color-blanco-grisaceo: #E8E4DC;
+  --color-gris: #6E6A5E;
+}
+
+/* =======================
+   TIPOGRAFÍA GLOBAL
+   ======================= */
+body {
+  font-family: "DM Sans", sans-serif;
+  color: var(--color-negro);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-blanco);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* importante para empujar footer abajo */
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--color-negro);
+}
+
+/* =======================
+   LINKS GLOBAL
+   ======================= */
+a {
+  text-decoration: none;
+  color: var(--color-negro);
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-verde);
+}
+
+a.activeLink {
+  color: var(--color-verde); 
+}
+
+/* =======================
+   MAIN CONTENT
+   ======================= */
+main {
+  flex: 1;
+  min-height: calc(100vh - 120px); /* ajusta según altura del navbar + footer */
+  padding: 1vh;
+}
+
+/* =======================
+   FOOTER STICKY
+   ======================= */
+footer {
+  flex-shrink: 0; /* no se encoge */
+}

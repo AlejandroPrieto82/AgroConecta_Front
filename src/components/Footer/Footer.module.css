@@ -1,0 +1,125 @@
+.footer {
+  background-color: var(--color-negro); /* fondo negro */
+  padding: 2rem;
+  font-family: "DM Sans", sans-serif;
+  color: var(--color-blanco); /* textos claros sobre fondo oscuro */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* sombra arriba del footer */
+}
+
+/* Sección superior: columnas */
+.top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Logo izquierda */
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  flex: 1;
+}
+
+.logoPlaceholder {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-verde);
+  border-radius: 5px;
+}
+
+/* Links centro */
+.linksSection {
+  display: flex;
+  gap: 4rem;
+  flex: 2;
+}
+
+.linksSection div h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--color-blanco); /* títulos en blanco */
+  border-bottom: 1px solid var(--color-blanco-grisaceo); /* subrayado */
+  padding-bottom: 0.2rem;
+}
+
+.linksSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linksSection li {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.linksSection li:hover {
+  color: var(--color-verde); /* hover verde */
+}
+
+/* Sección inferior: horizontal */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-blanco-grisaceo);
+  padding-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Redes sociales */
+.socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.icon:hover {
+  color: var(--color-verde);
+}
+
+/* Botones App/Play */
+.storeButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.storeBtn {
+  background-color: var(--color-blanco);
+  color: var(--color-negro);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.storeBtn:hover {
+  background-color: var(--color-verde);
+  color: var(--color-blanco);
+}
+
+/* Derechos */
+.rights {
+  font-size: 0.9rem;
+  color: var(--color-blanco-grisaceo);
+}
