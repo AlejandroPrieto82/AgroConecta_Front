@@ -15,12 +15,11 @@ const Footer: React.FC = () => {
                 {/* Links centro */}
                 <div className={styles.linksSection}>
                     <div>
-                        <h4>Rápidos</h4>
+                        <h4>Interés</h4>
                         <ul>
                             <li>Soy agricultor</li>
                             <li>Quiero comprar</li>
                             <li>Productos</li>
-                            <li>Contacto</li>
                             <li>Ser un aliado</li>
                         </ul>
                     </div>
@@ -30,16 +29,25 @@ const Footer: React.FC = () => {
                             <li>Privacidad</li>
                             <li>Términos</li>
                             <li>Condiciones</li>
-                            <li>Contacto</li>
                         </ul>
                     </div>
+                </div>
+
+                {/* Contacto derecha */}
+                <div className={styles.contactSection}>
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li>Nombre: AgroConecta</li>
+                        <li>Dirección: Calle Ficticia 123, Ciudad, País</li>
+                        <li>Teléfono: +1 234 567 890</li>
+                        <li>Correo: contacto@agroconecta.com</li>
+                    </ul>
                 </div>
             </div>
 
             {/* Sección inferior */}
             <div className={styles.bottom}>
                 <div className={styles.socials}>
-                    {/* Redes */}
                     <span className={styles.icon}>📘</span>
                     <span className={styles.icon}>🐦</span>
                     <span className={styles.icon}>📸</span>
