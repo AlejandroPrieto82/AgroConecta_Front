@@ -18,7 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Necesario para que Sonar analice el historial de Git correctamente
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -36,14 +36,6 @@ jobs:
         run: npm run build
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          args: >
-            -Dsonar.projectKey=AlejandroPrieto82_AgroConecta_Front
-            -Dsonar.organization=agroconecta
-            -Dsonar.sources=src
-            -Dsonar.exclusions=**/node_modules/**,**/dist/**
-            -Dsonar.language=ts
+        uses: SonarSource/sonarcloud-github-action@v3
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          
