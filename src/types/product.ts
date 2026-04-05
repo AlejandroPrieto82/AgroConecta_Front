@@ -18,8 +18,6 @@ export type Producto = {
 
   imagenes: string[];
 
-  tags: string[];
-
   agricultorId: string;
 
   rating?: number;

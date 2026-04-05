@@ -1,0 +1,91 @@
+.container {
+  max-width: 1100px;
+  margin: 120px auto 40px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* FILTROS */
+.filters {
+  background: var(--color-blanco-grisaceo);
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* CARD */
+.card {
+  background: var(--color-blanco-grisaceo);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* CONTENIDO */
+.cardContent {
+  padding: 1rem;
+}
+
+.cardContent h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.category {
+  display: inline-block;
+  margin: 0.3rem 0;
+  font-size: 0.8rem;
+  background: var(--color-verde-claro);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 0.4rem;
+  color: var(--color-verde);
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.rating {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+}

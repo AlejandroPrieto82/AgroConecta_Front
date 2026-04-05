@@ -7,6 +7,7 @@ import RegisterPage from "../pages/Register/RegisterPage";
 import ProfilePage from "../pages/Profile/ProfilePage";
 import EditProfilePage from "../pages/EditProfilePage/EditProfilePage";
 import ProtectedRoute from "./ProtectedRoute";
+import ProductsPage from "../pages/Products/ProductsPage";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/about" element={<AboutUs />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/registro" element={<RegisterPage />} />
+      <Route path="/productos" element={<ProductsPage />} />
 
       <Route
         path="/perfil"
