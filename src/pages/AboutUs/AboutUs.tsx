@@ -1,30 +1,61 @@
 import React from "react";
+import { Eye, Target } from "lucide-react";
 import styles from "./AboutUs.module.css";
-import InfoSection from "./sections/InfoSection/InfoSection";
 import CreatorsSection from "./sections/CreatorsSection/CreatorsSection";
 
 const AboutUs: React.FC = () => {
   return (
-    <main className={styles.container}>
-      {/* Sección de 3 bloques horizontales */}
-      <section className={styles.horizontalSections}>
-        <InfoSection title="¿Quiénes somos?">
-          Hace mucho, en un rincón remoto del internet, un grupo de desarrolladores
-          decidió unir fuerzas para crear AgroConecta. Mientras peleaban con bugs,
-          tomaban café, y hasta un día un gato pisó el teclado y creó la primera
-          función mágica… (IA dice: historia ficticia, la cambiaré por la real luego)
-        </InfoSection>
-
-        <InfoSection title="Visión">
-          Ser la plataforma líder en conexión directa entre productores y compradores.
-        </InfoSection>
-
-        <InfoSection title="Misión">
-          Facilitar transacciones seguras y confiables con transparencia total.
-        </InfoSection>
+    <main>
+      {/* Hero */}
+      <section className={styles.hero}>
+        <h1>Sobre nosotros</h1>
+        <p className={styles.heroSubtitle}>
+          Conoce al equipo detras de AgroConecta y nuestra mision de transformar
+          el comercio agricola en Colombia
+        </p>
       </section>
 
-      {/* Sección de creadores debajo */}
+      {/* Quienes somos */}
+      <section className={styles.about}>
+        <div className={styles.aboutContent}>
+          <h2>¿Quienes somos?</h2>
+          <p>
+            Somos un grupo de desarrolladores apasionados por la tecnologia y el campo.
+            Creamos AgroConecta para eliminar intermediarios y conectar directamente
+            a los agricultores con los compradores, garantizando precios justos y
+            productos frescos para todos.
+          </p>
+        </div>
+      </section>
+
+      {/* Vision y Mision */}
+      <section className={styles.vmSection}>
+        <div className={styles.vmCard}>
+          <div className={styles.vmIcon}>
+            <Eye size={24} />
+          </div>
+          <h3>Vision</h3>
+          <p>
+            Ser la plataforma lider en conexion directa entre productores y
+            compradores, democratizando el acceso a productos agricolas frescos
+            en toda la region.
+          </p>
+        </div>
+
+        <div className={styles.vmCard}>
+          <div className={styles.vmIcon}>
+            <Target size={24} />
+          </div>
+          <h3>Mision</h3>
+          <p>
+            Facilitar transacciones seguras y confiables con transparencia total,
+            empoderando a los agricultores y ofreciendo a los compradores la mejor
+            calidad directamente del campo.
+          </p>
+        </div>
+      </section>
+
+      {/* Creadores */}
       <CreatorsSection />
     </main>
   );

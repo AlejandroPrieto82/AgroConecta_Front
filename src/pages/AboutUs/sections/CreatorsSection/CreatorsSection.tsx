@@ -14,7 +14,8 @@ const creators = [
 const CreatorsSection: React.FC = () => {
   return (
     <section className={styles.section}>
-      <h2>Creadores</h2>
+      <h2>Nuestro equipo</h2>
+      <p className={styles.subtitle}>Las personas que hacen posible AgroConecta</p>
       <div className={styles.grid}>
         {creators.map((c, i) => (
           <CreatorCard key={i} {...c} />
