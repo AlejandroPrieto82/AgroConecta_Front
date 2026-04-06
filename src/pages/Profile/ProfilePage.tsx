@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ProfilePage.module.css";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../../hooks/useUser";
 
 type Stats = {
   productos: number;
@@ -27,7 +27,6 @@ const ProfilePage: React.FC = () => {
   const [loadingStats, setLoadingStats] = useState(true);
   const [avatar, setAvatar] = useState(user?.avatar || "");
 
-  // Hook siempre se llama, condicional dentro
   useEffect(() => {
     if (!esAgricultor) return;
 
@@ -97,7 +96,7 @@ const ProfilePage: React.FC = () => {
             <div className={styles.cultivosBox}>
               <h4>Cultivos</h4>
               <div className={styles.tags}>
-                {user.cultivos.map((c, i) => (
+                {user.cultivos?.map((c, i) => (
                   <span key={i} className={styles.tag}>
                     {c}
                   </span>

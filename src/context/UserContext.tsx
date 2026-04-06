@@ -1,19 +1,34 @@
 import React, { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
-import { mockUser } from "../mocks/mockUser";
+
+type User = {
+  nombre: string;
+  correo: string;
+  telefono: string;
+  direccion: string;
+  tipo: "agricultor" | "comprador";
+  avatar?: string;
+  biografia?: string;
+  cultivos?: string[];
+  fechaCreacion?: string;
+};
 
 type UserContextType = {
-  user: typeof mockUser | null;
+  user: User | null;
   login: () => void;
   logout: () => void;
 };
 
-const UserContext = createContext<UserContextType | undefined>(undefined);
+export const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<typeof mockUser | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
-  const login = () => setUser(mockUser);
+  const login = async () => {
+    const { mockUser } = await import("../mocks/mockUser");
+    setUser(mockUser);
+  };
+
   const logout = () => setUser(null);
 
   return (
@@ -21,10 +36,4 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </UserContext.Provider>
   );
-};
-
-export const useUser = () => {
-  const context = useContext(UserContext);
-  if (!context) throw new Error("useUser must be used within UserProvider");
-  return context;
 };

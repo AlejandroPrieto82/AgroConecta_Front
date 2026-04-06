@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../../hooks/useUser";
 import { mockUser } from "../../mocks/mockUser";
 import styles from "./LoginPage.module.css";
 
