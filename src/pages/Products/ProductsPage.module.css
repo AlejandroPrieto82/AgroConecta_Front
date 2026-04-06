@@ -1,0 +1,186 @@
+.container {
+  max-width: 1100px;
+  margin: 120px auto 40px;
+  padding: 0 1rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+}
+
+/* =========================
+   FILTROS PERFECTOS
+========================= */
+.filters {
+  background: var(--color-blanco-grisaceo);
+  padding: 1.2rem;
+  border-radius: 16px;
+
+  display: flex;
+  gap: 1rem;
+
+  align-items: center;
+
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* cada uno ocupa lo mismo */
+.filterItem {
+  flex: 1;
+  display: flex;
+}
+
+/* 🔥 RESET REAL PARA INPUT Y SELECT */
+.filterItem input,
+.filterItem select {
+  width: 100%;
+
+  height: 44px; /* 🔥 MISMA ALTURA REAL */
+  line-height: 44px; /* 🔥 centra texto vertical */
+
+  padding: 0 12px;
+
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+
+  font-size: 0.9rem;
+
+  display: flex;
+  align-items: center; /* 🔥 centra contenido */
+
+  box-sizing: border-box;
+
+  appearance: none; /* 🔥 quita estilos raros del select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  transition: all 0.2s ease;
+}
+
+/* 🔥 ICONO FALSO DEL SELECT (opcional pero queda pro) */
+.filterItem select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+}
+
+/* FOCUS */
+.filterItem input:focus,
+.filterItem select:focus {
+  outline: none;
+  border-color: var(--color-verde);
+  box-shadow: 0 0 0 2px rgba(0, 128, 0, 0.15);
+}
+
+/* HOVER */
+.filterItem input:hover,
+.filterItem select:hover {
+  border-color: var(--color-verde-claro);
+}
+
+/* =========================
+   GRID
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.6rem;
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+  background: var(--color-blanco-grisaceo);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardContent h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.category {
+  display: inline-block;
+  margin: 0.4rem 0 0.5rem;
+  font-size: 0.75rem;
+  background: var(--color-verde-claro);
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 0.3rem;
+  color: var(--color-verde);
+  font-size: 1.05rem;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 0.2rem;
+}
+
+.rating {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+}
+
+/* BOTONES */
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+.actions a {
+  flex: 1;
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 0.45rem;
+  border-radius: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .container {
+    margin-top: 100px;
+  }
+}
