@@ -1,41 +1,123 @@
-.agricultorComprador {
-  display: flex;
-  flex-wrap: wrap;
+.section {
+  padding: 3.5rem 0;
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--color-gris);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.cardsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  padding: 3rem 1rem;
-  background-color: var(--color-verde-claro);
-  justify-content: center;
 }
 
 .acCard {
-  flex: 1 1 400px;
-  min-width: 300px;
-  background-color: var(--color-blanco);
-  border-radius: 10px;
+  background: white;
+  border-radius: var(--radius-lg);
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: box-shadow var(--transition);
 }
 
-.acCard h3 {
-  text-align: center;
+.acCard:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cardEmoji {
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-verde-claro);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.cardHeader h3 {
   font-family: "Cormorant Garamond", serif;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.acCard div strong {
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.acCard div p {
+  font-weight: 700;
+  font-size: 1.4rem;
   margin: 0;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.stepItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-verde);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.stepItem strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+  color: var(--color-negro);
+}
+
+.stepItem p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-gris);
 }
 
 .buttonGroup {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 768px) {
+  .cardsRow {
+    grid-template-columns: 1fr;
+  }
 }
