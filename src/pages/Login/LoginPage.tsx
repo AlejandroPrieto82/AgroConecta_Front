@@ -12,8 +12,7 @@ const LoginPage: React.FC = () => {
 
   const navigate = useNavigate();
   const { login } = useUser();
-
-  const MOCK_PASSWORD = "123456"; 
+  const MOCK_PASSWORD = "123456";
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,17 +20,18 @@ const LoginPage: React.FC = () => {
     setLoading(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500)); // simula carga
-
-      // Validación de correo y contraseña
+      await new Promise((resolve) => setTimeout(resolve, 500));
       if (correo !== mockUser.correo || password !== MOCK_PASSWORD) {
         throw new Error("Usuario o contraseña incorrectos");
       }
-
-      login(); // sin argumentos según tu UserContext
+      login();
       navigate("/perfil");
-    } catch (err: any) {
-      setError(err.message || "Error al iniciar sesión");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Error al iniciar sesión");
+      }
     } finally {
       setLoading(false);
     }

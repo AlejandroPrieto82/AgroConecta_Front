@@ -1,17 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import type { To, Location } from "react-router-dom";
 import styles from "./Button.module.css";
 
 interface ButtonProps {
   children?: React.ReactNode;
   icon?: React.ReactNode;
-  to: string;
+  to: To;
   variant?: "filled" | "outline";
   border?: boolean;
   className?: string;
-
-  // ✅ NUEVO: permite pasar estado al navegar
-  state?: any;
+  state?: Location["state"];
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,12 +20,12 @@ const Button: React.FC<ButtonProps> = ({
   variant = "filled",
   border = false,
   className,
-  state // ✅ recibir state
+  state
 }) => {
   return (
     <Link
       to={to}
-      state={state} // ✅ pasar state al Link
+      state={state}
       className={`${styles.button} 
                  ${variant === "filled" ? styles.filled : styles.outline} 
                  ${border ? styles.border : ""} 
