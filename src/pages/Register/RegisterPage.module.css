@@ -1,10 +1,10 @@
 .registerContainer {
-  max-width: 400px;
-  margin: 120px auto 40px;
+  max-width: 480px;
+  margin: 40px auto;
   background-color: var(--color-blanco-grisaceo);
   padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   font-family: "DM Sans", sans-serif;
   display: flex;
   flex-direction: column;
@@ -16,9 +16,89 @@
   color: var(--color-negro);
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
+.subtitle {
+  text-align: center;
+  color: var(--color-gris);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Role selection cards */
+.roleCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.roleCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.roleCard:hover {
+  border-color: var(--color-verde);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.roleIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius);
+  background: var(--color-verde-claro);
+  color: var(--color-verde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roleCard h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.roleCard p {
+  font-size: 0.82rem;
+  color: var(--color-gris);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Back button */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-gris);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0;
+  transition: color var(--transition);
+  align-self: flex-start;
+}
+
+.backBtn:hover {
+  color: var(--color-verde);
+}
+
+/* Form */
 .registerForm {
   display: flex;
   flex-direction: column;
@@ -37,9 +117,12 @@
 .registerForm select,
 .registerForm textarea {
   padding: 0.65rem 0.75rem;
-  border: 1px solid var(--color-gris);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   margin-top: 0.25rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  background: white;
   transition: border 0.3s, box-shadow 0.3s;
 }
 
@@ -47,37 +130,90 @@
 .registerForm select:focus,
 .registerForm textarea:focus {
   border-color: var(--color-verde);
-  box-shadow: 0 0 5px rgba(29, 171, 51, 0.3);
+  box-shadow: 0 0 0 3px rgba(29, 171, 51, 0.12);
   outline: none;
 }
 
 .error {
-  color: red;
+  color: #d4183d;
   font-size: 0.85rem;
-  margin-top: -0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.buttonGroup {
-  display: flex;
-  justify-content: space-between; /* Volver a la izquierda, Registrarse a la derecha */
-  margin-top: 1rem;
-  gap: 1rem;
+  margin: 0;
 }
 
 .buttonFilled {
   padding: 0.75rem;
   background-color: var(--color-verde);
-  color: var(--color-blanco);
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1rem;
+  margin-top: 0.5rem;
   transition: background 0.3s, transform 0.2s;
 }
 
 .buttonFilled:hover {
-  background-color: var(--color-verde-intermedio);
-  transform: translateY(-2px);
+  background-color: var(--color-verde-oscuro);
+  transform: translateY(-1px);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-gris);
+  font-size: 0.85rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-gris);
+  opacity: 0.3;
+}
+
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-negro);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.googleBtn:hover {
+  background: #f8f8f8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loginLink {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-gris);
+}
+
+.loginLink a {
+  color: var(--color-verde);
+  font-weight: 600;
+}
+
+.loginLink a:hover {
+  color: var(--color-verde-oscuro);
+}
+
+@media (max-width: 480px) {
+  .roleCards {
+    grid-template-columns: 1fr;
+  }
 }
