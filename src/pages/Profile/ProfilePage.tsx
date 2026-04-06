@@ -21,14 +21,13 @@ const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
   const { user, logout } = useUser();
 
+  const esAgricultor = user?.tipo === "agricultor";
+
   const [stats, setStats] = useState<Stats | null>(null);
   const [loadingStats, setLoadingStats] = useState(true);
   const [avatar, setAvatar] = useState(user?.avatar || "");
 
-  if (!user) return null;
-
-  const esAgricultor = user.tipo === "agricultor";
-
+  // Hook siempre se llama, condicional dentro
   useEffect(() => {
     if (!esAgricultor) return;
 
@@ -45,6 +44,8 @@ const ProfilePage: React.FC = () => {
 
     fetchStats();
   }, [esAgricultor]);
+
+  if (!user) return null;
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.[0]) {
