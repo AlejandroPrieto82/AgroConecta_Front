@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import type { To, Location } from "react-router-dom";
+import { Link, type To, type Location } from "react-router-dom";
 import styles from "./Button.module.css";
 
 interface ButtonProps {

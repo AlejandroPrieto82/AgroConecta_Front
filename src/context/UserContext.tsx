@@ -1,6 +1,5 @@
-// src/context/UserContext.tsx
 import React, { createContext, useContext, useState } from "react";
-import type { ReactNode } from "react"; // <-- type-only import
+import type { ReactNode } from "react";
 import { mockUser } from "../mocks/mockUser";
 
 type UserContextType = {

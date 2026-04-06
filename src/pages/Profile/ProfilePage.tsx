@@ -67,29 +67,17 @@ const ProfilePage: React.FC = () => {
 
         <div className={styles.info}>
           <h3 className={styles.name}>{user.nombre}</h3>
-
-          <span className={styles.role}>
-            {esAgricultor ? "Agricultor" : "Comprador"}
-          </span>
-
+          <span className={styles.role}>{esAgricultor ? "Agricultor" : "Comprador"}</span>
           <p>{user.direccion}</p>
           <p>{user.correo}</p>
           <p>{user.telefono}</p>
 
-          {esAgricultor && (
-            <p className={styles.meta}>
-              Usuario desde: {user.fechaCreacion}
-            </p>
-          )}
+          {esAgricultor && <p className={styles.meta}>Usuario desde: {user.fechaCreacion}</p>}
 
           <div className={styles.actions}>
-            <button
-              className={styles.editBtn}
-              onClick={() => navigate("/editar-perfil")}
-            >
+            <button className={styles.editBtn} onClick={() => navigate("/editar-perfil")}>
               Editar perfil
             </button>
-
             <button className={styles.logoutBtn} onClick={logout}>
               Cerrar sesión
             </button>
@@ -98,52 +86,52 @@ const ProfilePage: React.FC = () => {
       </div>
 
       {esAgricultor && (
-        <div className={styles.extraCard}>
-          <div className={styles.bioBox}>
-            <h4>Biografía</h4>
-            <p>{user.biografia}</p>
-          </div>
+        <>
+          <div className={styles.extraCard}>
+            <div className={styles.bioBox}>
+              <h4>Biografía</h4>
+              <p>{user.biografia}</p>
+            </div>
 
-          <div className={styles.cultivosBox}>
-            <h4>Cultivos</h4>
-            <div className={styles.tags}>
-              {user.cultivos.map((c, i) => (
-                <span key={i} className={styles.tag}>
-                  {c}
-                </span>
-              ))}
+            <div className={styles.cultivosBox}>
+              <h4>Cultivos</h4>
+              <div className={styles.tags}>
+                {user.cultivos.map((c, i) => (
+                  <span key={i} className={styles.tag}>
+                    {c}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
 
-      {esAgricultor && <hr className={styles.divider} />}
+          <hr className={styles.divider} />
 
-      {esAgricultor && (
-        <div className={styles.statsContainer}>
-          {loadingStats ? (
-            <p>Cargando...</p>
-          ) : (
-            <>
-              <div className={styles.statCard}>
-                <h3>{stats?.productos}</h3>
-                <p>Productos</p>
-              </div>
-              <div className={styles.statCard}>
-                <h3>{stats?.ventas}</h3>
-                <p>Ventas</p>
-              </div>
-              <div className={styles.statCard}>
-                <h3>{stats?.calificacion}</h3>
-                <p>Calificación</p>
-              </div>
-              <div className={styles.statCard}>
-                <h3>{stats?.pedidos}</h3>
-                <p>Pedidos</p>
-              </div>
-            </>
-          )}
-        </div>
+          <div className={styles.statsContainer}>
+            {loadingStats ? (
+              <p>Cargando...</p>
+            ) : (
+              <>
+                <div className={styles.statCard}>
+                  <h3>{stats?.productos}</h3>
+                  <p>Productos</p>
+                </div>
+                <div className={styles.statCard}>
+                  <h3>{stats?.ventas}</h3>
+                  <p>Ventas</p>
+                </div>
+                <div className={styles.statCard}>
+                  <h3>{stats?.calificacion}</h3>
+                  <p>Calificación</p>
+                </div>
+                <div className={styles.statCard}>
+                  <h3>{stats?.pedidos}</h3>
+                  <p>Pedidos</p>
+                </div>
+              </>
+            )}
+          </div>
+        </>
       )}
     </div>
   );
