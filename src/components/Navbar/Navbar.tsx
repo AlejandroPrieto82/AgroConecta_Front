@@ -7,7 +7,6 @@ const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  // Clase para link activo
   const activeClass = ({ isActive }: { isActive: boolean }) =>
     isActive ? styles.activeLink : "";
 
@@ -27,31 +26,46 @@ const Navbar: React.FC = () => {
             <NavLink to="/about" className={activeClass}>Sobre nosotros</NavLink>
           </li>
           <li>
-            <NavLink to="/marketplace" className={activeClass}>Marketplace</NavLink>
+            <NavLink to="/productos" className={activeClass}>Marketplace</NavLink>
           </li>
         </ul>
 
         <div className={styles.actions}>
           <Button icon="🛒" to="/carrito" variant="outline" />
           <Button icon="👤" to="/perfil" variant="outline" />
-          <Button to="/productos" variant="filled">Explorar Productos</Button>
+          <Button to="/productos" variant="filled">
+            Explorar Productos
+          </Button>
         </div>
 
-        <div className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`} onClick={toggleMenu}>
+        <div
+          className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`}
+          onClick={toggleMenu}
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
 
-        <ul className={`${styles.navLinksMobile} ${menuOpen ? styles.active : ""}`}>
+        <ul
+          className={`${styles.navLinksMobile} ${
+            menuOpen ? styles.active : ""
+          }`}
+        >
           <li>
-            <NavLink to="/" className={activeClass} onClick={toggleMenu}>Inicio</NavLink>
+            <NavLink to="/" className={activeClass} onClick={toggleMenu}>
+              Inicio
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className={activeClass} onClick={toggleMenu}>Sobre nosotros</NavLink>
+            <NavLink to="/about" className={activeClass} onClick={toggleMenu}>
+              Sobre nosotros
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/marketplace" className={activeClass} onClick={toggleMenu}>Marketplace</NavLink>
+            <NavLink to="/productos" className={activeClass} onClick={toggleMenu}>
+              Marketplace
+            </NavLink>
           </li>
         </ul>
       </div>
