@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button"; // botón negro
+import { useNavigate, useLocation } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import styles from "./RegisterPage.module.css";
 
 const RegisterPage: React.FC = () => {
-  // ✅ Por defecto: comprador
-  const [tipo, setTipo] = useState<"agricultor" | "comprador">("comprador");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // ✅ Detecta si viene desde el botón de agricultor
+  const tipoInicial =
+    location.state?.tipo === "agricultor" ? "agricultor" : "comprador";
+
+  // ✅ Usa ese valor inicial
+  const [tipo, setTipo] = useState<"agricultor" | "comprador">(tipoInicial);
+
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -18,8 +26,6 @@ const RegisterPage: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const navigate = useNavigate();
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +42,6 @@ const RegisterPage: React.FC = () => {
     };
 
     try {
-      // TODO: reemplaza con tu endpoint real
       const response = await fetch("TU_API_REGISTRO_AQUI", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -58,13 +63,16 @@ const RegisterPage: React.FC = () => {
   return (
     <div className={styles.registerContainer}>
       <h2>Registro</h2>
+
       <form onSubmit={handleRegister} className={styles.registerForm}>
         {/* Tipo de usuario */}
         <label>
           Tipo de usuario
           <select
             value={tipo}
-            onChange={(e) => setTipo(e.target.value as "agricultor" | "comprador")}
+            onChange={(e) =>
+              setTipo(e.target.value as "agricultor" | "comprador")
+            }
           >
             <option value="agricultor">Agricultor</option>
             <option value="comprador">Comprador</option>
@@ -74,22 +82,42 @@ const RegisterPage: React.FC = () => {
         {/* Campos comunes */}
         <label>
           Nombre
-          <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
+          <input
+            type="text"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            required
+          />
         </label>
 
         <label>
           Correo
-          <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} required />
+          <input
+            type="email"
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
+            required
+          />
         </label>
 
         <label>
           Teléfono
-          <input type="tel" value={telefono} onChange={(e) => setTelefono(e.target.value)} required />
+          <input
+            type="tel"
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
+            required
+          />
         </label>
 
         <label>
           Contraseña
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </label>
 
         {/* Campos exclusivos para agricultor */}
@@ -97,12 +125,22 @@ const RegisterPage: React.FC = () => {
           <>
             <label>
               Dirección
-              <input type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} required />
+              <input
+                type="text"
+                value={direccion}
+                onChange={(e) => setDireccion(e.target.value)}
+                required
+              />
             </label>
 
             <label>
               Biografía
-              <textarea value={biografia} onChange={(e) => setBiografia(e.target.value)} rows={3} required />
+              <textarea
+                value={biografia}
+                onChange={(e) => setBiografia(e.target.value)}
+                rows={3}
+                required
+              />
             </label>
 
             <label>
@@ -125,13 +163,17 @@ const RegisterPage: React.FC = () => {
 
         {error && <p className={styles.error}>{error}</p>}
 
-        {/* Botones: Volver (izquierda) y Registrarse (derecha) */}
+        {/* Botones */}
         <div className={styles.buttonGroup}>
           <Button to="/login" variant="filled">
             Volver
           </Button>
 
-          <button type="submit" className={styles.buttonFilled} disabled={loading}>
+          <button
+            type="submit"
+            className={styles.buttonFilled}
+            disabled={loading}
+          >
             {loading ? "Registrando..." : "Registrarse"}
           </button>
         </div>

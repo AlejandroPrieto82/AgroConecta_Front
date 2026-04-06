@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AboutUs.module.css";
-import InfoSection from "./components/InfoSection/InfoSection";
-import CreatorsSection from "./components/CreatorsSection/CreatorsSection";
+import InfoSection from "./sections/InfoSection/InfoSection";
+import CreatorsSection from "./sections/CreatorsSection/CreatorsSection";
 
 const AboutUs: React.FC = () => {
   return (

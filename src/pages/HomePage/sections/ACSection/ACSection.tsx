@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../Button/Button";
+import Button from "../../../../components/Button/Button";
 import styles from "./ACSection.module.css";
 
 const ACSection: React.FC = () => {
@@ -25,8 +25,16 @@ const ACSection: React.FC = () => {
             <p>{item.text}</p>
           </div>
         ))}
+
         <div className={styles.buttonGroup}>
-          <Button to="/registro-agricultor" variant="filled">Comenzar como Agricultor</Button>
+          {/* ✅ CORREGIDO */}
+          <Button
+            to="/registro"
+            variant="filled"
+            state={{ tipo: "agricultor" }}
+          >
+            Comenzar como Agricultor
+          </Button>
         </div>
       </div>
 
@@ -38,8 +46,12 @@ const ACSection: React.FC = () => {
             <p>{item.text}</p>
           </div>
         ))}
+
         <div className={styles.buttonGroup}>
-          <Button to="/marketplace" variant="filled">Explorar Marketplace</Button>
+          {/* ✅ CORREGIDO */}
+          <Button to="/productos" variant="filled">
+            Explorar Marketplace
+          </Button>
         </div>
       </div>
     </section>

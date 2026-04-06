@@ -6,9 +6,12 @@ interface ButtonProps {
   children?: React.ReactNode;
   icon?: React.ReactNode;
   to: string;
-  variant?: "filled" | "outline";  // Cambio: filled = negro con letras blancas, outline = sin fondo, letras negras
+  variant?: "filled" | "outline";
   border?: boolean;
   className?: string;
+
+  // ✅ NUEVO: permite pasar estado al navegar
+  state?: any;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -17,11 +20,13 @@ const Button: React.FC<ButtonProps> = ({
   to,
   variant = "filled",
   border = false,
-  className
+  className,
+  state // ✅ recibir state
 }) => {
   return (
     <Link
       to={to}
+      state={state} // ✅ pasar state al Link
       className={`${styles.button} 
                  ${variant === "filled" ? styles.filled : styles.outline} 
                  ${border ? styles.border : ""} 

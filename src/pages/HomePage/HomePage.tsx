@@ -1,8 +1,8 @@
 import React from "react";
-import HeroSection from "../../components/HomePage/HeroSection/HeroSection";
-import CifrasSection from "../../components/HomePage/CifrasSection/CifrasSection";
-import RazonesSection from "../../components/HomePage/RazonesSection/RazonesSection";
-import ACSection from "../../components/HomePage/ACSection/ACSection";
+import HeroSection from "./sections/HeroSection/HeroSection";
+import CifrasSection from "./sections/CifrasSection/CifrasSection";
+import RazonesSection from "./sections/RazonesSection/RazonesSection";
+import ACSection from "./sections/ACSection/ACSection";
 
 const HomePage: React.FC = () => {
   return (
