@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ShoppingCart, User } from "lucide-react";
 import styles from "./Navbar.module.css";
 import Button from "../Button/Button";
 
@@ -25,14 +26,11 @@ const Navbar: React.FC = () => {
           <li>
             <NavLink to="/about" className={activeClass}>Sobre nosotros</NavLink>
           </li>
-          <li>
-            <NavLink to="/productos" className={activeClass}>Marketplace</NavLink>
-          </li>
         </ul>
 
         <div className={styles.actions}>
-          <Button icon="🛒" to="/carrito" variant="outline" />
-          <Button icon="👤" to="/perfil" variant="outline" />
+          <Button icon={<ShoppingCart size={18} />} to="/carrito" variant="outline" />
+          <Button icon={<User size={18} />} to="/perfil" variant="outline" />
           <Button to="/productos" variant="filled">
             Explorar Productos
           </Button>
@@ -60,11 +58,6 @@ const Navbar: React.FC = () => {
           <li>
             <NavLink to="/about" className={activeClass} onClick={toggleMenu}>
               Sobre nosotros
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/productos" className={activeClass} onClick={toggleMenu}>
-              Marketplace
             </NavLink>
           </li>
         </ul>

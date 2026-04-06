@@ -1,0 +1,94 @@
+.cta {
+  padding: 3.5rem 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cta h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ctaSubtitle {
+  color: var(--color-gris);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.ctaCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ctaCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 2rem 1.5rem;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.ctaCard:hover {
+  border-color: var(--color-verde);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+.ctaIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius);
+  background: var(--color-gris-claro);
+  color: var(--color-negro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctaIconGreen {
+  background: var(--color-verde-claro);
+  color: var(--color-verde);
+}
+
+.ctaCard h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-negro);
+}
+
+.ctaCard p {
+  font-size: 0.9rem;
+  color: var(--color-gris);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ctaArrow {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-verde);
+  margin-top: 0.5rem;
+}
+
+.ctaCard:hover .ctaArrow {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .ctaCards {
+    grid-template-columns: 1fr;
+  }
+}
