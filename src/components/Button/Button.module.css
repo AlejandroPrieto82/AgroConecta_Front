@@ -1,0 +1,52 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+/* Botón con fondo negro */
+.filled {
+  background-color: #000;
+  color: #fff;
+}
+
+.filled:hover {
+  background-color: var(--color-verde); /* hover siempre verde */
+  color: #fff;
+}
+
+/* Botón sin fondo */
+.outline {
+  background-color: transparent;
+  color: #000;
+}
+
+.outline:hover {
+  color: var(--color-verde); /* hover siempre verde */
+}
+
+/* Borde opcional */
+.border {
+  border: 1px solid #ccc;
+}
+
+/* Contenedor del contenido */
+.content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ícono dentro del botón */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
