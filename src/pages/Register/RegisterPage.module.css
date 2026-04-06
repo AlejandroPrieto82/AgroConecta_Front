@@ -1,0 +1,83 @@
+.registerContainer {
+  max-width: 400px;
+  margin: 120px auto 40px;
+  background-color: var(--color-blanco-grisaceo);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: "DM Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.registerContainer h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--color-negro);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.registerForm label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: var(--color-negro);
+  font-size: 0.95rem;
+}
+
+.registerForm input,
+.registerForm select,
+.registerForm textarea {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--color-gris);
+  border-radius: 8px;
+  margin-top: 0.25rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.registerForm input:focus,
+.registerForm select:focus,
+.registerForm textarea:focus {
+  border-color: var(--color-verde);
+  box-shadow: 0 0 5px rgba(29, 171, 51, 0.3);
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between; /* Volver a la izquierda, Registrarse a la derecha */
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.buttonFilled {
+  padding: 0.75rem;
+  background-color: var(--color-verde);
+  color: var(--color-blanco);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.buttonFilled:hover {
+  background-color: var(--color-verde-intermedio);
+  transform: translateY(-2px);
+}
