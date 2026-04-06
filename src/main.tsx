@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import AppRoutes from "./routes/AppRoutes";
 import ScrollToTop from "./utils/ScrollToTop";
-import { UserProvider } from "./context/UserContext";
+import UserProvider from "./context/UserProvider";
 
 import "./main.css";
 

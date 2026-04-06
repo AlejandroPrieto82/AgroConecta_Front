@@ -1,7 +1,6 @@
-import React, { createContext, useState } from "react";
-import type { ReactNode } from "react";
+import { createContext } from "react";
 
-type User = {
+export type User = {
   nombre: string;
   correo: string;
   telefono: string;
@@ -13,27 +12,10 @@ type User = {
   fechaCreacion?: string;
 };
 
-type UserContextType = {
+export type UserContextType = {
   user: User | null;
   login: () => void;
   logout: () => void;
 };
 
 export const UserContext = createContext<UserContextType | undefined>(undefined);
-
-export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
-
-  const login = async () => {
-    const { mockUser } = await import("../mocks/mockUser");
-    setUser(mockUser);
-  };
-
-  const logout = () => setUser(null);
-
-  return (
-    <UserContext.Provider value={{ user, login, logout }}>
-      {children}
-    </UserContext.Provider>
-  );
-};
