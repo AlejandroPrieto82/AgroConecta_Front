@@ -1,0 +1,21 @@
+.cifras {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cifraItem {
+  flex: 1 1 150px;
+  margin: 1rem 0;
+}
+
+.cifraItem h2 {
+  font-size: 2rem;
+  color: var(--color-verde);
+}
+
+.cifraItem p {
+  margin: 0.25rem 0 0 0;
+}

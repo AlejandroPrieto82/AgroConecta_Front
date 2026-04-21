@@ -1,0 +1,187 @@
+:root {
+  --color-negro: #1A1A18;
+  --color-blanco: #F8F6F0;
+  --color-verde: #1dab33;
+  --color-blanco-grisaceo: #E8E4DC;
+}
+
+/* Footer principal */
+.footer {
+  background-color: var(--color-negro);
+  padding: 2rem;
+  font-family: "DM Sans", sans-serif;
+  color: var(--color-blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección superior: logo, links, contacto */
+.top {
+  display: flex;
+  justify-content: space-between; /* logo izquierda, links centrados, contacto derecha */
+  align-items: center; /* CENTRADO VERTICAL */
+  flex-wrap: wrap; /* responsive */
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Logo izquierda */
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  flex: 0 1 auto;
+}
+
+/* Placeholder verde para logo */
+.logoPlaceholder {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-verde);
+  border-radius: 5px;
+}
+
+/* Links centro */
+.linksSection {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 600px;
+}
+
+.linksSection div h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--color-blanco);
+  border-bottom: 1px solid var(--color-blanco-grisaceo);
+  padding-bottom: 0.2rem;
+}
+
+.linksSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linksSection li {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.linksSection li:hover {
+  color: var(--color-verde);
+}
+
+/* Contacto derecha */
+.contactSection {
+  flex: 0 1 auto;
+  min-width: 200px;
+}
+
+.contactSection h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--color-blanco);
+  border-bottom: 1px solid var(--color-blanco-grisaceo);
+  padding-bottom: 0.2rem;
+}
+
+.contactSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactSection li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Sección inferior */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-blanco-grisaceo);
+  padding-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Redes sociales */
+.socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.icon:hover {
+  color: var(--color-verde);
+}
+
+/* Botones App/Play */
+.storeButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.storeBtn {
+  background-color: var(--color-blanco);
+  color: var(--color-negro);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.storeBtn:hover {
+  background-color: var(--color-verde);
+  color: var(--color-blanco);
+}
+
+/* Derechos */
+.rights {
+  font-size: 0.9rem;
+  color: var(--color-blanco-grisaceo);
+}
+
+/* Responsive básico */
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .linksSection {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+
+  .contactSection {
+    margin-top: 1rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

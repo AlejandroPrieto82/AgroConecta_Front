@@ -1,0 +1,90 @@
+/* =======================
+   VARIABLES DE COLOR
+   ======================= */
+:root {
+  --color-negro: #1A1A18;
+  --color-blanco: #F8F6F0;
+  --color-verde: #1DAB33;
+  --color-verde-oscuro: #178a2a;
+  --color-verde-intermedio: #6B9E6E;
+  --color-verde-claro: #e8f5e9;
+  --color-blanco-grisaceo: #E8E4DC;
+  --color-gris: #6E6A5E;
+  --color-gris-claro: #f5f5f0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =======================
+   TIPOGRAFÍA GLOBAL
+   ======================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  color: var(--color-negro);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-blanco);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--color-negro);
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--color-gris);
+}
+
+/* =======================
+   LINKS GLOBAL
+   ======================= */
+a {
+  text-decoration: none;
+  color: var(--color-negro);
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-verde);
+}
+
+a.activeLink {
+  color: var(--color-verde);
+}
+
+/* =======================
+   MAIN CONTENT
+   ======================= */
+main {
+  flex: 1;
+  min-height: calc(100vh - 120px);
+  padding: 0 1.5rem 3rem;
+  padding-top: 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* =======================
+   FOOTER STICKY
+   ======================= */
+footer {
+  flex-shrink: 0;
+}

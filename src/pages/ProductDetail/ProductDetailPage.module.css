@@ -1,0 +1,97 @@
+.container {
+  max-width: 1000px;
+  margin: 120px auto 40px;
+  padding: 0 1rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+/* BOTÓN VOLVER */
+.back {
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+/* CARD */
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  background: var(--color-blanco-grisaceo);
+  border-radius: 16px;
+  padding: 1.5rem;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* IMAGEN */
+.image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* INFO */
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* CATEGORY */
+.category {
+  display: inline-block;
+  margin: 0.5rem 0;
+  background: var(--color-verde-claro);
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+/* PRICE */
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-verde);
+  margin: 0.5rem 0;
+}
+
+/* DESCRIPTION */
+.description {
+  margin-top: 1rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* RATING */
+.rating {
+  margin-top: 0.5rem;
+}
+
+/* BOTONES */
+.actions {
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .image {
+    height: 250px;
+  }
+}
