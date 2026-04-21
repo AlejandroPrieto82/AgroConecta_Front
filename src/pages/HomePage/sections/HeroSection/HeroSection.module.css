@@ -1,33 +1,129 @@
 .hero {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 3rem 1rem;
-  border-radius: 10px;
+  gap: 3rem;
+  padding: 4rem 3rem;
+  border-radius: var(--radius-lg);
   align-items: center;
   justify-content: space-between;
-  background-color: var(--color-verde-claro);
-  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(29, 171, 51, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
 }
 
 .heroContent {
   flex: 1 1 400px;
   min-width: 300px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
   font-family: "Cormorant Garamond", serif;
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--color-gris);
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  line-height: 1.7;
 }
 
 .heroButtons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.heroVisual {
+  flex: 1 1 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.visualCard {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 280px;
+}
+
+.visualStat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  background: var(--color-gris-claro);
+  transition: transform var(--transition);
+}
+
+.visualStat:hover {
+  transform: translateX(4px);
+}
+
+.statIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.green { background: #e8f5e9; }
+.blue { background: #e3f2fd; }
+.orange { background: #fff3e0; }
+
+.statInfo strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-negro);
+  font-family: "DM Sans", sans-serif;
+}
+
+.statInfo span {
+  font-size: 0.78rem;
+  color: var(--color-gris);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .heroVisual {
+    display: none;
+  }
 }

@@ -2,39 +2,47 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.9rem;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all var(--transition);
+  letter-spacing: 0.01em;
 }
 
-/* Botón con fondo negro */
+/* Filled */
 .filled {
-  background-color: #000;
+  background-color: var(--color-negro);
   color: #fff;
 }
 
 .filled:hover {
-  background-color: var(--color-verde); /* hover siempre verde */
+  background-color: var(--color-verde);
   color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(29, 171, 51, 0.3);
 }
 
-/* Botón sin fondo */
+/* Outline */
 .outline {
   background-color: transparent;
-  color: #000;
+  color: var(--color-negro);
 }
 
 .outline:hover {
-  color: var(--color-verde); /* hover siempre verde */
+  color: var(--color-verde);
 }
 
 /* Borde opcional */
 .border {
-  border: 1px solid #ccc;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+}
+
+.border:hover {
+  border-color: var(--color-verde);
 }
 
 /* Contenedor del contenido */
@@ -44,7 +52,7 @@
   gap: 0.5rem;
 }
 
-/* Ícono dentro del botón */
+/* Icono */
 .icon {
   display: inline-flex;
   align-items: center;
